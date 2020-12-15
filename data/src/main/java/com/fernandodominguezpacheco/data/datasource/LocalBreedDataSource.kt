@@ -5,5 +5,5 @@ import com.fernandodominguezpacheco.domain.Breed
 interface LocalBreedDataSource {
     suspend fun addBreed(breed: Breed)
     suspend fun getAllBreeds() : List<Breed>
-    suspend fun getBreedById() : List<Breed>
+    suspend fun getBreedById(id: String) : Breed
 }

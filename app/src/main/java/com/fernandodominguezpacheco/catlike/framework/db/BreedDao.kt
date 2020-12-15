@@ -12,5 +12,5 @@ interface BreedDao {
     suspend fun getAllBreeds() : List<Breed>
 
     @Query("SELECT * FROM Breed WHERE id=:id")
-    suspend fun getBreedById(id: String) : List<Breed>
+    suspend fun getBreedById(id: String) : Breed
 }
