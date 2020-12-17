@@ -17,6 +17,10 @@ class RoomBreedDataSource(db: BreedDb) : LocalBreedDataSource {
         }
     }
 
+    override suspend fun addBreeds(breeds: List<Breed>) {
+        breedDao.addBreeds(breeds.map{ it.toRoomBreed()})
+    }
+
     override suspend fun getAllBreeds(): List<Breed> = withContext(Dispatchers.IO){
         breedDao.getAllBreeds().map{
             it.toBreed()
@@ -26,6 +30,13 @@ class RoomBreedDataSource(db: BreedDb) : LocalBreedDataSource {
 
     override suspend fun getBreedById(id: String): Breed  = withContext(Dispatchers.IO){
         breedDao.getBreedById(id).toBreed()
+    }
+
+    override suspend fun isEmpty(): Boolean = withContext(Dispatchers.IO){ breedDao.breedCount() <= 0 }
+
+
+    override suspend fun deleteAll() {
+        breedDao.deleteAll()
     }
 
 

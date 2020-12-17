@@ -44,7 +44,6 @@ class BreedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }

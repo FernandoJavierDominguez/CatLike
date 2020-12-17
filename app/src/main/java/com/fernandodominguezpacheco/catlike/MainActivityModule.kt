@@ -2,6 +2,8 @@ package com.fernandodominguezpacheco.catlike
 
 import com.fernandodominguezpacheco.data.repository.BreedRepository
 import com.fernandodominguezpacheco.data.repository.LikeRepository
+import com.fernandodominguezpacheco.usecases.AddLike
+import com.fernandodominguezpacheco.usecases.DeleteLike
 import com.fernandodominguezpacheco.usecases.GetAllBreeds
 import com.fernandodominguezpacheco.usecases.GetAllLikes
 import dagger.Module
@@ -19,4 +21,10 @@ class MainActivityModule {
 
     @Provides
     fun getAllLikes(likeRepository: LikeRepository) = GetAllLikes(likeRepository)
+
+    @Provides
+    fun addLike(likeRepository: LikeRepository) = AddLike(likeRepository)
+
+    @Provides
+    fun deleteLike(likeRepository: LikeRepository) = DeleteLike(likeRepository)
 }

@@ -17,9 +17,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.fernandodominguezpacheco.catlike.ui.dashboard.LikeFragment"
+        android:name="com.fernandodominguezpacheco.catlike.ui.like.LikeFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_like" />
 
     <fragment
         android:id="@+id/navigation_notifications"

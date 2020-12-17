@@ -10,5 +10,4 @@ interface LikeDataSource {
     suspend fun deleteLike(like: Like)
     suspend fun getAllLikes() : List<Like>
     suspend fun getLikeByBreed(breedId: String) : List<Like>
-
 }

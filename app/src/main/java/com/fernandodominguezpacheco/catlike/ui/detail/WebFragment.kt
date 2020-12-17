@@ -11,9 +11,10 @@ import androidx.fragment.app.activityViewModels
 import com.fernandodominguezpacheco.catlike.databinding.FragmentWebBinding
 import com.fernandodominguezpacheco.catlike.utils.SharedViewModel
 import com.fernandodominguezpacheco.miningmarket.observer
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_web.*
 
-
+@AndroidEntryPoint
 class WebFragment : Fragment() {
 
     private val sharedViewModel : SharedViewModel by activityViewModels()

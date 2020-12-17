@@ -7,7 +7,8 @@ data class Breed(
     var origin: String = "",
     var temperament: String = "",
     var wikipedia_url: String = "",
-    var url: String = ""
+    var url: String = "",
+    var like: Boolean = false
 
 ) {
 

@@ -25,7 +25,7 @@ class RoomLikeDataSource(db: BreedDb) : LikeDataSource {
 
     override suspend fun deleteLike(like: Like) {
         withContext(Dispatchers.IO){
-            likeDao.deleteLike(like.toRoomLike())
+            likeDao.deleteLike(like.breedId)
         }
     }
 
@@ -40,4 +40,5 @@ class RoomLikeDataSource(db: BreedDb) : LikeDataSource {
             it.toLike()
         }
     }
+
 }

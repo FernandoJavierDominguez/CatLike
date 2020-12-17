@@ -15,7 +15,7 @@ import dagger.hilt.android.components.ApplicationComponent
 class DataModule {
 
     @Provides
-    fun breedRepositoryProvider(localBreedDataSource: LocalBreedDataSource, remoteBreedDataSource: RemoteBreedDataSource) = BreedRepository(localBreedDataSource,remoteBreedDataSource)
+    fun breedRepositoryProvider(localBreedDataSource: LocalBreedDataSource, remoteBreedDataSource: RemoteBreedDataSource, likeDataSource: LikeDataSource) = BreedRepository(localBreedDataSource,remoteBreedDataSource, likeDataSource)
 
     @Provides
     fun likeRepositoryProvider(likeDataSource: LikeDataSource) = LikeRepository(likeDataSource)

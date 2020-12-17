@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.fernandodominguezpacheco.catlike.R
 import com.fernandodominguezpacheco.catlike.databinding.FragmentBreedDetailBinding
 import com.fernandodominguezpacheco.catlike.databinding.FragmentHomeBinding
+import com.fernandodominguezpacheco.catlike.ui.home.BreedViewModel
 import com.fernandodominguezpacheco.catlike.utils.SharedViewModel
 import com.fernandodominguezpacheco.miningmarket.loadUrl
 import com.fernandodominguezpacheco.miningmarket.observer
@@ -22,6 +24,7 @@ class BreedDetailFragment : Fragment() {
     private var _binding: FragmentBreedDetailBinding? = null
     private val binding get() = _binding!!
 
+    private val breedDetailViewModel: BreedDetailViewModel by viewModels()
     private val sharedViewModel : SharedViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -34,6 +37,8 @@ class BreedDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        lateinit var breedId: String
+        var likeResult: Boolean = false
         observer(sharedViewModel.getSelectedBreed()){
             with(binding){
                 url.loadUrl(it.url)
@@ -42,11 +47,28 @@ class BreedDetailFragment : Fragment() {
                 origin.text = it.origin
                 temperament.text = it.temperament
                 wikipediaUrl.text = it.wikipedia_url
+                if(it.like) like.setImageResource(R.drawable.ic_favorite) else like.setImageResource(R.drawable.ic_favorite_border)
+                likeResult = it.like
+                breedId = it.id
+
             }
         }
         binding.button.setOnClickListener {
-            view.findNavController().navigate(R.id.action_navigation_detail_to_navigation_web)
+            it.findNavController().navigate(R.id.action_navigation_detail_to_navigation_web)
         }
+        binding.like.setOnClickListener {
+            if(likeResult){
+                breedDetailViewModel.deleteLike(breedId)
+                binding.like.setImageResource(R.drawable.ic_favorite_border)
+                likeResult = false
+            }
+            else{
+                breedDetailViewModel.addLike(breedId)
+                binding.like.setImageResource(R.drawable.ic_favorite)
+                likeResult = true
+            }
+        }
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

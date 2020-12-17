@@ -25,7 +25,8 @@ fun RoomBreed.toBreed() : Breed = Breed(
     origin,
     temperament,
     wikipedia_url,
-    url
+    url,
+    false
 )
 
 fun ServerBreed.toBreed() : Breed = Breed(
@@ -35,7 +36,8 @@ fun ServerBreed.toBreed() : Breed = Breed(
         origin ?: "",
         temperament ?: "",
         wikipedia_url ?: "",
-        image?.url ?: ""
+        image?.url ?: "",
+        false
 )
 
 

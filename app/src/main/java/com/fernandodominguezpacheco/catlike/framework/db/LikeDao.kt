@@ -11,8 +11,8 @@ interface LikeDao {
     @Update
     suspend fun updateLike(like: Like)
 
-    @Delete
-    suspend fun deleteLike(like: Like)
+    @Query("DELETE FROM [Like] WHERE breedId=:breedId")
+    suspend fun deleteLike(breedId: String)
 
     @Query("SELECT * FROM [Like]")
     suspend fun getAllLikes() : List<Like>
