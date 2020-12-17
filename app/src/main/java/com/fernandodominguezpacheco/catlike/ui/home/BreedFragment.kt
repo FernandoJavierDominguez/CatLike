@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.fernandodominguezpacheco.catlike.BreedApp
 import com.fernandodominguezpacheco.catlike.R
 import com.fernandodominguezpacheco.catlike.databinding.FragmentHomeBinding
@@ -24,6 +25,7 @@ class BreedFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     /*@Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -41,7 +43,7 @@ class BreedFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
@@ -53,6 +55,11 @@ class BreedFragment : Fragment() {
         binding.list.layoutManager = GridLayoutManager(context, 2)
         observer(breedViewModel.breedItems){
             adapter.items = it
+        }
+        swipeRefreshLayout = binding.swipeRefreshLayout
+        swipeRefreshLayout.setOnRefreshListener {
+            breedViewModel.getBreeds()
+            swipeRefreshLayout.isRefreshing = false
         }
     }
 

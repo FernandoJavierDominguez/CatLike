@@ -1,4 +1,4 @@
-package com.fernandodominguezpacheco.catlike.ui.home
+package com.fernandodominguezpacheco.catlike.ui.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.fernandodominguezpacheco.catlike.R
 import com.fernandodominguezpacheco.catlike.databinding.FragmentBreedDetailBinding
 import com.fernandodominguezpacheco.catlike.databinding.FragmentHomeBinding
@@ -13,6 +14,7 @@ import com.fernandodominguezpacheco.catlike.utils.SharedViewModel
 import com.fernandodominguezpacheco.miningmarket.loadUrl
 import com.fernandodominguezpacheco.miningmarket.observer
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_breed_detail.*
 
 @AndroidEntryPoint
 class BreedDetailFragment : Fragment() {
@@ -25,7 +27,7 @@ class BreedDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentBreedDetailBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -41,6 +43,9 @@ class BreedDetailFragment : Fragment() {
                 temperament.text = it.temperament
                 wikipediaUrl.text = it.wikipedia_url
             }
+        }
+        binding.button.setOnClickListener {
+            view.findNavController().navigate(R.id.action_navigation_detail_to_navigation_web)
         }
     }
     override fun onDestroyView() {

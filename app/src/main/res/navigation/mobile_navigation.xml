@@ -28,7 +28,17 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_detail"
-        android:name="com.fernandodominguezpacheco.catlike.ui.home.BreedDetailFragment"
+        android:name="com.fernandodominguezpacheco.catlike.ui.detail.BreedDetailFragment"
         android:label="@string/title_detail"
-        tools:layout="@layout/fragment_breed_detail" />
+        tools:layout="@layout/fragment_breed_detail" >
+        <action
+            android:id="@+id/action_navigation_detail_to_navigation_web"
+            app:destination="@id/navigation_web" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_web"
+        android:name="com.fernandodominguezpacheco.catlike.ui.detail.WebFragment"
+        android:label="@string/web_detail"
+        tools:layout="@layout/fragment_web" />
 </navigation>

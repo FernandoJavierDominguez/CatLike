@@ -14,10 +14,15 @@ class BreedViewModel @ViewModelInject constructor(
     private val getAllBreeds: GetAllBreeds
 ) : ViewModel() {
 
+
     private val _breedItems = MutableLiveData<List<Breed>>()
     val breedItems: LiveData<List<Breed>> get() = _breedItems
 
     init{
+        getBreeds()
+    }
+
+    fun getBreeds() {
         viewModelScope.launch {
             _breedItems.value = getAllBreeds.invoke()
         }
