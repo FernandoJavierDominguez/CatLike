@@ -14,7 +14,8 @@ fun Breed.toRoomBreed() : RoomBreed = RoomBreed(
     description,
     origin,
     temperament,
-    wikipedia_url
+    wikipedia_url,
+    url
 )
 
 fun RoomBreed.toBreed() : Breed = Breed(
@@ -23,17 +24,20 @@ fun RoomBreed.toBreed() : Breed = Breed(
     description,
     origin,
     temperament,
-    wikipedia_url
+    wikipedia_url,
+    url
 )
 
 fun ServerBreed.toBreed() : Breed = Breed(
-    id,
-    name,
-    description,
-    origin,
-    temperament,
-    wikipedia_url
+        id,
+        name?: "",
+        description ?: "",
+        origin ?: "",
+        temperament ?: "",
+        wikipedia_url ?: "",
+        image?.url ?: ""
 )
+
 
 //Like
 fun Like.toRoomLike() : RoomLike = RoomLike(
