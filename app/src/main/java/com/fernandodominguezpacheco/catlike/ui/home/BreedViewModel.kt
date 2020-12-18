@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.fernandodominguezpacheco.domain.Breed
 import com.fernandodominguezpacheco.usecases.GetAllBreeds
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class BreedViewModel @ViewModelInject constructor(
     private val getAllBreeds: GetAllBreeds

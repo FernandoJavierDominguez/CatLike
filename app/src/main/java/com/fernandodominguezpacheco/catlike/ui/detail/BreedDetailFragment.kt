@@ -1,22 +1,19 @@
 package com.fernandodominguezpacheco.catlike.ui.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.fernandodominguezpacheco.catlike.R
 import com.fernandodominguezpacheco.catlike.databinding.FragmentBreedDetailBinding
-import com.fernandodominguezpacheco.catlike.databinding.FragmentHomeBinding
-import com.fernandodominguezpacheco.catlike.ui.home.BreedViewModel
 import com.fernandodominguezpacheco.catlike.utils.SharedViewModel
 import com.fernandodominguezpacheco.miningmarket.loadUrl
 import com.fernandodominguezpacheco.miningmarket.observer
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_breed_detail.*
 
 @AndroidEntryPoint
 class BreedDetailFragment : Fragment() {
@@ -70,8 +67,11 @@ class BreedDetailFragment : Fragment() {
         }
 
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
+

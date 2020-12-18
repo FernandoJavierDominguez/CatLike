@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fernandodominguezpacheco.domain.Breed
 import com.fernandodominguezpacheco.domain.Like
 import com.fernandodominguezpacheco.usecases.GetAllLikes
 import kotlinx.coroutines.launch

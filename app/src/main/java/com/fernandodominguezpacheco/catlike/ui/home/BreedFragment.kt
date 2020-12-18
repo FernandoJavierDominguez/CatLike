@@ -1,6 +1,5 @@
 package com.fernandodominguezpacheco.catlike.ui.home
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,17 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.fernandodominguezpacheco.catlike.BreedApp
 import com.fernandodominguezpacheco.catlike.R
 import com.fernandodominguezpacheco.catlike.databinding.FragmentHomeBinding
 import com.fernandodominguezpacheco.catlike.utils.SharedViewModel
 import com.fernandodominguezpacheco.miningmarket.observer
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class BreedFragment : Fragment() {
@@ -27,9 +23,6 @@ class BreedFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
-    /*@Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val breedViewModel: BreedViewModel by viewModels{ viewModelFactory }*/
     private val breedViewModel: BreedViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
@@ -61,11 +54,6 @@ class BreedFragment : Fragment() {
             swipeRefreshLayout.isRefreshing = false
         }
     }
-
-    /*override fun onAttach(context: Context) {
-        (context.applicationContext as BreedApp).getComponent().inject(this)
-        super.onAttach(context)
-    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

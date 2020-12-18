@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.fernandodominguezpacheco.domain.Like
 import com.fernandodominguezpacheco.usecases.AddLike
 import com.fernandodominguezpacheco.usecases.DeleteLike
-import com.fernandodominguezpacheco.usecases.GetAllBreeds
 import kotlinx.coroutines.launch
 import java.util.*
 
