@@ -18,8 +18,8 @@ class MainActivityModule {
     @Provides
     fun getAllBreedsRoom(breedRepository: BreedRepository) = GetAllBreedsRoom(breedRepository)
 
-    @Provides
-    fun getAllLikes(likeRepository: LikeRepository) = GetAllLikes(likeRepository)
+    /*@Provides
+    fun getAllLikes(likeRepository: LikeRepository) = GetAllLikes(likeRepository)*/
 
     @Provides
     fun addLike(likeRepository: LikeRepository) = AddLike(likeRepository)
