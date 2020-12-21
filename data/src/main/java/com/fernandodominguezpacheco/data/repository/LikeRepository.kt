@@ -12,7 +12,7 @@ class LikeRepository(private val likeDataSource: LikeDataSource) {
     suspend fun addLike(like: Like) = likeDataSource.addLike(like)
     suspend fun updateLike(like: Like) = likeDataSource.updateLike(like)
     suspend fun deleteLike(like: Like) = likeDataSource.deleteLike(like)
-    fun getAllLikes() : Flow<List<Like>> = flow { likeDataSource.getAllLikes() }
+    fun getAllLikes() : Flow<List<Like>> = flow { emit(likeDataSource.getAllLikes()) }
     suspend fun getLikeByBreed(breedId: String) : List<Like> = likeDataSource.getLikeByBreed(breedId)
 
 }
