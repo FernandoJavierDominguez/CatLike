@@ -54,15 +54,14 @@ class BreedDetailFragment : Fragment() {
             it.findNavController().navigate(R.id.action_navigation_detail_to_navigation_web)
         }
         binding.like.setOnClickListener {
-            if(likeResult){
+            likeResult = if(likeResult){
                 breedDetailViewModel.deleteLike(breedId)
                 binding.like.setImageResource(R.drawable.ic_favorite_border)
-                likeResult = false
-            }
-            else{
+                false
+            } else{
                 breedDetailViewModel.addLike(breedId)
                 binding.like.setImageResource(R.drawable.ic_favorite)
-                likeResult = true
+                true
             }
         }
 

@@ -9,8 +9,6 @@ class LikeViewModel @ViewModelInject constructor(
     private val likeRepository: LikeRepository
 ): ViewModel() {
 
-
-
     val likeItems = likeRepository.getAllLikes().asLiveData()
 
 }

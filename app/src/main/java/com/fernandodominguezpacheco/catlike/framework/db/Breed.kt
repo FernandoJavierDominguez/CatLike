@@ -13,7 +13,5 @@ data class Breed constructor(
     var temperament: String,
     var wikipedia_url: String,
     var url: String,
-    /*@Embedded
-    var likes: List<Like>*/
-) {
-}
+
+)

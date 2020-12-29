@@ -21,9 +21,6 @@ interface BreedDao {
     @Transaction @Query("SELECT * FROM Breed")
     fun getAllBreedWithLikes() : Flow<List<BreedWithLikes>>
 
-   /*@Query("SELECT * FROM Breed")
-   suspend fun getAllBreeds() : List<Breed>*/
-
     @Query("SELECT * FROM Breed WHERE id=:id")
     suspend fun getBreedById(id: String) : Breed
 

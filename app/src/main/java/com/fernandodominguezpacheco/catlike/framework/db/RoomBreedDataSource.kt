@@ -23,10 +23,6 @@ class RoomBreedDataSource(db: BreedDb) : LocalBreedDataSource {
         breedDao.addBreeds(breeds.map{ it.toRoomBreed()})
     }
 
-    /*override suspend fun getAllBreeds(): List<Breed> {
-        return breedDao.getAllBreeds().map { it.toBreed() }
-    }*/
-
     override fun getAllBreeds(): Flow<List<Breed>> = breedDao.getAllBreeds().map {
         breeds -> breeds.map { it.toBreed() }
     }
@@ -35,8 +31,6 @@ class RoomBreedDataSource(db: BreedDb) : LocalBreedDataSource {
             breeds -> breeds.map { it.toBreed() }
         }
     }
-
-
 
     override suspend fun getBreedById(id: String): Breed  = withContext(Dispatchers.IO){
         breedDao.getBreedById(id).toBreed()

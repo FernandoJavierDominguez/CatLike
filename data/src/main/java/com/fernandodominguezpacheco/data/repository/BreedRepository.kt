@@ -18,41 +18,14 @@ class BreedRepository(private val localBreedDataSource: LocalBreedDataSource, pr
 
     suspend fun addBreed(breed: Breed) = localBreedDataSource.addBreed(breed)
 
-    //fun getAllBreeds() : Flow<List<Breed>> = localBreedDataSource.getAllBreeds()
-    /*suspend fun getAllBreeds() : List<Breed>{
-        return if(localBreedDataSource.isEmpty()){
-            localBreedDataSource.addBreeds(remoteBreedDataSource.getAllBreeds())
-            localBreedDataSource.getAllBreeds()
-        } else{
-            localBreedDataSource.getAllBreeds()
-        }
-}*/
-    /*fun getAllBreeds() : Flow<List<Breed>> = if(localBreedDataSource.isEmpty()){
-        localBreedDataSource.addBreeds(remoteBreedDataSource.getAllBreeds())
-        localBreedDataSource.getAllBreeds()
-    } else{
-        localBreedDataSource.getAllBreeds()
-    }*/
+    fun getAllBreeds() : Flow<List<Breed>> =  localBreedDataSource.getAllBreedWithLikes()
 
-    //fun getAllBreeds() : Flow<List<Breed>> = localBreedDataSource.getAllBreeds()
-
-    fun getAllBreeds() : Flow<List<Breed>>{
-        //val breeds = localBreedDataSource.getAllBreeds()
-        val breeds = localBreedDataSource.getAllBreedWithLikes()
-        /*breeds.map { breeds -> breeds.forEach {
-                it.like = likeDataSource.getLikeByBreed(it.id).toList().isEmpty()
-            }
-        }*/
-        return breeds
-    }
     suspend fun addCacheBreed() {
         if(localBreedDataSource.isEmpty()) {
             localBreedDataSource.addBreeds(remoteBreedDataSource.getAllBreeds())
             localBreedDataSource.getAllBreeds()
         }
     }
-
-
 
     suspend fun getBreedById(id: String) : Breed = localBreedDataSource.getBreedById(id)
 
