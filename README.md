@@ -3,7 +3,7 @@
 The main view of the application is a list view of cat images. If the user touches an image, it shows a detail. In the detail of each image, the user can indicate if the image is liked. In the Likes menu, a list of favorite images is displayed.
 
 # Strategy
-If there is an internet connection, the data sorted by date is captured from the API using OkHttp3, Retrofit, and Gson. They are then saved to a local database using Room.
+If there is an internet connection, the data sorted by date is captured from the API using Flows, OkHttp3, Retrofit, and Gson. They are then saved to a local database using Room. 
 The view is only loaded with data from the local database. If there is no internet connection, the local database data is displayed directly, without attempting to fetch the data from the API.
 
 For navigation between fragments, graphic navigation is used. More info at: https://developer.android.com/guide/navigation/navigation-design-graph?hl=es
@@ -22,6 +22,7 @@ In your gradle:
 # Features
   - Clean Architecture 
   - MVVM
+  - Flows
   - Dagger Hilt
   - Room 
   - Retrofit
