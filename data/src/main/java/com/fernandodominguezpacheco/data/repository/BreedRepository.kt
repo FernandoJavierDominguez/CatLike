@@ -14,19 +14,10 @@ class BreedRepository(private val localBreedDataSource: LocalBreedDataSource, pr
         if(localBreedDataSource.isEmpty()){
             localBreedDataSource.addBreeds(breeds)
         }
-        breeds = localBreedDataSource.getAllBreeds()
-        breeds.forEach {
-            it.like = likeDataSource.getLikeByBreed(it.id).isNotEmpty()
-        }
+        breeds = localBreedDataSource.getAllBreedWithLikes()
         return breeds
     }
-    suspend fun getAllBreedsRoom() : List<Breed>{
-        val breeds = localBreedDataSource.getAllBreeds()
-        breeds.forEach {
-            it.like = likeDataSource.getLikeByBreed(it.id).isNotEmpty()
-        }
-        return breeds
-    }
+    suspend fun getAllBreedsRoom() : List<Breed> = localBreedDataSource.getAllBreedWithLikes()
 
     suspend fun getBreedById(id: String) : Breed = localBreedDataSource.getBreedById(id)
 

@@ -3,8 +3,6 @@ package com.fernandodominguezpacheco.catlike.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.fernandodominguezpacheco.catlike.R
 import com.fernandodominguezpacheco.catlike.databinding.RowBreedBinding
@@ -44,7 +42,7 @@ class BreedAdapter(
             with(binding){
                 if(breedItem.url != "") url.loadUrl(breedItem.url)
                 name.text = breedItem.name
-                if(breedItem.like) likeResult.setImageResource(R.drawable.ic_favorite) else likeResult.setImageResource(R.drawable.ic_favorite_border)
+                if(breedItem.likes.isNotEmpty()) likeResult.setImageResource(R.drawable.ic_favorite) else likeResult.setImageResource(R.drawable.ic_favorite_border)
             }
         }
 

@@ -26,7 +26,11 @@ class RoomBreedDataSource(db: BreedDb) : LocalBreedDataSource {
             it.toBreed()
         }
     }
-
+    override suspend fun getAllBreedWithLikes(): List<Breed> = withContext(Dispatchers.IO){
+        breedDao.getAllBreedWithLikes().map{
+            it.toBreed()
+        }
+    }
 
     override suspend fun getBreedById(id: String): Breed  = withContext(Dispatchers.IO){
         breedDao.getBreedById(id).toBreed()
