@@ -2,7 +2,9 @@ package com.fernandodominguezpacheco.catlike.ui.home
 
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.fernandodominguezpacheco.catlike.utils.NetworkUtils
 import com.fernandodominguezpacheco.data.repository.BreedRepository
 import kotlinx.coroutines.launch

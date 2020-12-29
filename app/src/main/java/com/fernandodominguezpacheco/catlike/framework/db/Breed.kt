@@ -1,6 +1,5 @@
 package com.fernandodominguezpacheco.catlike.framework.db
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -13,5 +12,4 @@ data class Breed constructor(
     var temperament: String,
     var wikipedia_url: String,
     var url: String,
-
 )

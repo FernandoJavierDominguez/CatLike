@@ -1,8 +1,8 @@
 package com.fernandodominguezpacheco.catlike
 
-import com.fernandodominguezpacheco.data.repository.BreedRepository
 import com.fernandodominguezpacheco.data.repository.LikeRepository
-import com.fernandodominguezpacheco.usecases.*
+import com.fernandodominguezpacheco.usecases.AddLike
+import com.fernandodominguezpacheco.usecases.DeleteLike
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

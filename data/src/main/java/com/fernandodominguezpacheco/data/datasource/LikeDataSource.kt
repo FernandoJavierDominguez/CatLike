@@ -1,6 +1,5 @@
 package com.fernandodominguezpacheco.data.datasource
 
-import com.fernandodominguezpacheco.domain.Breed
 import com.fernandodominguezpacheco.domain.Like
 import kotlinx.coroutines.flow.Flow
 
