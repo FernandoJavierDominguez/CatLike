@@ -44,8 +44,8 @@ class BreedDetailFragment : Fragment() {
                 origin.text = it.origin
                 temperament.text = it.temperament
                 wikipediaUrl.text = it.wikipedia_url
-                if(it.like) like.setImageResource(R.drawable.ic_favorite) else like.setImageResource(R.drawable.ic_favorite_border)
-                likeResult = it.like
+                if(it.likes.isEmpty()) like.setImageResource(R.drawable.ic_favorite_border) else like.setImageResource(R.drawable.ic_favorite)
+                likeResult = it.likes.isNotEmpty()
                 breedId = it.id
 
             }

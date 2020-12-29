@@ -50,7 +50,7 @@ class BreedFragment : Fragment() {
         }
         swipeRefreshLayout = binding.swipeRefreshLayout
         swipeRefreshLayout.setOnRefreshListener {
-            breedViewModel.getBreeds()
+            //breedViewModel.getBreeds()
             swipeRefreshLayout.isRefreshing = false
         }
     }

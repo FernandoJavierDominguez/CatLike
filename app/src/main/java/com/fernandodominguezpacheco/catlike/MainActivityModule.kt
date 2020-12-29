@@ -12,11 +12,6 @@ import dagger.hilt.android.components.ActivityRetainedComponent
 @InstallIn(ActivityRetainedComponent::class)
 class MainActivityModule {
 
-    @Provides
-    fun getAllBreeds(breedRepository: BreedRepository) = GetAllBreeds(breedRepository)
-
-    @Provides
-    fun getAllBreedsRoom(breedRepository: BreedRepository) = GetAllBreedsRoom(breedRepository)
 
     /*@Provides
     fun getAllLikes(likeRepository: LikeRepository) = GetAllLikes(likeRepository)*/

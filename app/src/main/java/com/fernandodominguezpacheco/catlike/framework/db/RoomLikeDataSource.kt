@@ -5,6 +5,8 @@ import com.fernandodominguezpacheco.catlike.framework.toRoomLike
 import com.fernandodominguezpacheco.data.datasource.LikeDataSource
 import com.fernandodominguezpacheco.domain.Like
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class RoomLikeDataSource(db: BreedDb) : LikeDataSource {
@@ -29,16 +31,12 @@ class RoomLikeDataSource(db: BreedDb) : LikeDataSource {
         }
     }
 
-    override suspend fun getAllLikes(): List<Like> = withContext(Dispatchers.IO){
-        likeDao.getAllLikes().map {
-            it.toLike()
-        }
+    override fun getAllLikes(): Flow<List<Like>> = likeDao.getAllLikes().map {
+        likes -> likes.map { it.toLike() }
     }
 
-    override suspend fun getLikeByBreed(breedId: String): List<Like>  = withContext(Dispatchers.IO){
-        likeDao.getLikeByBreed(breedId).map{
-            it.toLike()
-        }
+    override fun getLikeByBreed(breedId: String): Flow<List<Like>> =  likeDao.getLikeByBreed(breedId).map{
+        lists -> lists.map { it.toLike() }
     }
 
 }

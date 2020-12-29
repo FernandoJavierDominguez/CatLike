@@ -44,7 +44,7 @@ class BreedAdapter(
             with(binding){
                 if(breedItem.url != "") url.loadUrl(breedItem.url)
                 name.text = breedItem.name
-                if(breedItem.like) likeResult.setImageResource(R.drawable.ic_favorite) else likeResult.setImageResource(R.drawable.ic_favorite_border)
+                if(breedItem.likes.isEmpty())  likeResult.setImageResource(R.drawable.ic_favorite_border) else likeResult.setImageResource(R.drawable.ic_favorite)
             }
         }
 
